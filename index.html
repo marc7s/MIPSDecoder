@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <title>Integer conversion</title>
+        <script src="script.js"></script>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="toggle.css">
+        <link rel="stylesheet" href="darkmode.css">
+        <link rel="stylesheet" href="lightmode.css">
+    </head>
+    <body class="dark" id="body">
+        <h1 class="pageTitle">Integer conversion</h1>
+        <label class="switch">
+            <input type="checkbox" onchange="toggleDarkMode(this)" checked>
+            <span class="slider"></span>
+        </label>
+        <div class="inputWrapper bitInput">
+            <h2>Bits</h2>
+            <input type="number" step=1 value=4 id="bits" oninput="updateValues()">
+        </div>
+        
+        <div class="bitError" id="bit_error">
+            <h3>Error: Too few bits to represent number</h3>
+        </div>
+        
+        <div class="inputContainer">
+            <div class="inputWrapper">
+                <h2>Dec</h2>
+                <input type="number" step=1 id="num_dec" oninput="handleInput(this)">
+            </div>
+            
+            <div class="inputWrapper">
+                <h2>Hex</h2>
+                <input type="text" id="num_hex" oninput="handleInput(this)">
+            </div>
+
+            <div class="inputWrapper">
+                <h2>Bin</h2>
+                <input type="text" id="num_bin" oninput="handleInput(this)">
+            </div>
+
+            <div class="inputWrapper">
+                <h2>Bin 2k</h2>
+                <input type="text" id="num_bin2k" oninput="handleInput(this)">
+            </div>
+        </div>
+        <footer><a href="https://github.com/marc7s">marc7s</a></footer>
+    </body>
+</html>
