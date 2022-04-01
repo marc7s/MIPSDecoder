@@ -1,6 +1,7 @@
 <html>
     <head>
         <title>MIPS Decoder</title>
+        <script src="instructions.js"></script>
         <script src="script.js"></script>
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="toggle.css">
@@ -34,16 +35,30 @@
                     <h2>Bin</h2>
                     <input type="text" id="num_bin" oninput="handleInput(this)">
                 </div>
-    
-                <div class="inputWrapper">
-                    <h2>Bin 2k</h2>
-                    <input type="text" id="num_bin2k" oninput="handleInput(this)">
-                </div>
             </div>
         </div>
         <div class="decodedInstructionWrapper">
             <h1>Decoded instruction</h1>
-            <h2>Instruction format: <span id="instruction_format">R/I/J</span></h2>
+            <h2>Instruction: <span id="instruction_name"></span>, <span id="instruction_mnemonic"></span></h2>
+            <h2>Format: <span id="instruction_format"></span></h2>
+            <div class="instructionParts">
+                <h2>opcode: <span id="opcode"></span></h2>
+                <div id="format_r">
+                    <h2>reg1: <span id="r_reg1"></span></h2>
+                    <h2>reg2: <span id="r_reg2"></span></h2>
+                    <h2>regD: <span id="r_regD"></span></h2>
+                    <h2>shift amount: <span id="r_shamt"></span></h2>
+                    <h2>function: <span id="r_funct"></span></h2>
+                </div>
+                <div id="format_i">
+                    <h2>reg1: <span id="i_reg1"></span></h2>
+                    <h2>reg2: <span id="i_reg2"></span></h2>
+                    <h2>immediate: <span id="i_immediate"></span></h2>
+                </div>
+                <div id="format_j">
+                    <h2>address: <span id="j_address"></span></h2>
+                </div>
+            </div>
         </div>
         <footer><a href="https://github.com/marc7s">marc7s</a></footer>
     </body>

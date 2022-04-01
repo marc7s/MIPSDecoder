@@ -5,14 +5,18 @@ body {
 .inputContainer{
     display: flex;
     justify-content: center;
+    flex-direction: column;
     width: 80%;
     margin: auto;
+    max-width: 1200px;
 }
 .row{
-    flex-basis: 50%;
+    display: flex;
+    justify-content: center;
 }
 .inputWrapper{
     margin: 0 40px 0 40px;
+    flex-grow: 1;
 }
 .inputWrapper input{
     width: 100%;
@@ -58,4 +62,13 @@ footer {
 footer a {
     color: white;
     text-decoration: none;
+}
+
+#format_r, #format_i, #format_j{
+    display: none;
+}
+
+#instruction_mnemonic{
+    font-family: "Consolas", monospace;
+    font-weight: bold;
 }
