@@ -4,11 +4,14 @@ body {
 
 .inputContainer{
     display: flex;
+    justify-content: center;
     width: 80%;
     margin: auto;
 }
+.row{
+    flex-basis: 50%;
+}
 .inputWrapper{
-    flex-basis: 25%;
     margin: 0 40px 0 40px;
 }
 .inputWrapper input{
@@ -20,9 +23,11 @@ body {
     width: 100%;
     text-align: center;
 }
-.inputWrapper.bitInput{
-    width: 100px;
-    margin: auto;
+.decodedInstructionWrapper{
+    margin: 50px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 h1.pageTitle{
     text-align: center;

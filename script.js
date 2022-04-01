@@ -2,13 +2,14 @@ var numDec, numHex, numBin, numBin2k;
 
 var bits, bitError, body;
 
+const mipsBits = 32;
+
 document.addEventListener('DOMContentLoaded', () => {
     // Get elements once loaded
     numDec = document.getElementById("num_dec");
     numHex = document.getElementById("num_hex");
     numBin = document.getElementById("num_bin");
     numBin2k = document.getElementById("num_bin2k");
-    bits = document.getElementById("bits");
     bitError = document.getElementById("bit_error");
     body = document.getElementById("body");
 
@@ -35,7 +36,7 @@ function handleInput(el){
         }
         val = parseInt(numDec.value);
         
-        if(isBitError(val, bits.value)){
+        if(isBitError(val, mipsBits)){
             const inputs = [numDec, numHex, numBin, numBin2k];
             inputs.forEach(input => {
                 if(input.id != el.id)
@@ -49,11 +50,11 @@ function handleInput(el){
     
             if(val < 0){
                 numBin.value = 'NaN';
-                numBin2k.value = padBin((Math.pow(2, bits.value) + val).toString(2));
+                numBin2k.value = padBin((Math.pow(2, mipsBits) + val).toString(2));
             }
             else{
                 numBin.value = padBin(val.toString(2));
-                if(val < Math.pow(2, bits.value - 1))
+                if(val < Math.pow(2, mipsBits - 1))
                     numBin2k.value = padBin(val.toString(2));
                 else
                     numBin2k.value = 'NaN';
@@ -74,11 +75,11 @@ function convertFromBin(val){
 }
 function convertFromBin2k(val){
     if(val[0])
-        return -(Math.pow(2, bits.value) - parseInt(val.substring(1), 2));
+        return -(Math.pow(2, mipsBits) - parseInt(val.substring(1), 2));
     return parseInt(val, 2);
 }
 function updateValues(){
-    if(isBitError(val, bits.value)){
+    if(isBitError(val, mipsBits)){
         showBitError();
     }else{
         hideBitError();
@@ -86,7 +87,7 @@ function updateValues(){
     }
 }
 function padBin(val){
-    let pStr = new Array(parseInt(bits.value) + 1).join('0');
+    let pStr = new Array(parseInt(mipsBits) + 1).join('0');
     return pStr.substring(val.length) + val;
 }
 function isBitError(val, bitNo){
